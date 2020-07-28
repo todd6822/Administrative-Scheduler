@@ -1,0 +1,24 @@
+E:\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\bin\Debug\Administrative Scheduler.exe.config
+E:\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\bin\Debug\Administrative Scheduler.exe
+E:\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\bin\Debug\Administrative Scheduler.pdb
+E:\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative Scheduler.csprojAssemblyReference.cache
+E:\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative_Scheduler.unitManagementScreen.resources
+E:\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative_Scheduler.Properties.Resources.resources
+E:\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative Scheduler.csproj.GenerateResource.cache
+E:\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative Scheduler.csproj.CoreCompileInputs.cache
+E:\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative Scheduler.exe
+E:\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative Scheduler.pdb
+E:\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative_Scheduler.ScheduleForm.resources
+E:\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative_Scheduler.WorkAssignmentsForm.resources
+J:\HomeWork\Summer 2020\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\bin\Debug\Administrative Scheduler.exe.config
+J:\HomeWork\Summer 2020\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\bin\Debug\Administrative Scheduler.exe
+J:\HomeWork\Summer 2020\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\bin\Debug\Administrative Scheduler.pdb
+J:\HomeWork\Summer 2020\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative_Scheduler.ScheduleForm.resources
+J:\HomeWork\Summer 2020\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative_Scheduler.unitManagementScreen.resources
+J:\HomeWork\Summer 2020\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative_Scheduler.Properties.Resources.resources
+J:\HomeWork\Summer 2020\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative_Scheduler.WorkAssignmentsForm.resources
+J:\HomeWork\Summer 2020\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative Scheduler.csproj.GenerateResource.cache
+J:\HomeWork\Summer 2020\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative Scheduler.csproj.CoreCompileInputs.cache
+J:\HomeWork\Summer 2020\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative Scheduler.exe
+J:\HomeWork\Summer 2020\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative Scheduler.pdb
+J:\HomeWork\Summer 2020\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative Scheduler.csprojAssemblyReference.cache
