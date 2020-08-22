@@ -176,8 +176,7 @@
             // 
             this.timeFrameListBox.FormattingEnabled = true;
             this.timeFrameListBox.Items.AddRange(new object[] {
-            "Days",
-            "Hours"});
+            "Days"});
             this.timeFrameListBox.Location = new System.Drawing.Point(465, 835);
             this.timeFrameListBox.Name = "timeFrameListBox";
             this.timeFrameListBox.Size = new System.Drawing.Size(105, 17);

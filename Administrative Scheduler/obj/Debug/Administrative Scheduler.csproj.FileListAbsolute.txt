@@ -21,4 +21,5 @@ J:\HomeWork\Summer 2020\Summer 2020\Software Practice\Project attempt1\Administr
 J:\HomeWork\Summer 2020\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative Scheduler.csproj.CoreCompileInputs.cache
 J:\HomeWork\Summer 2020\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative Scheduler.exe
 J:\HomeWork\Summer 2020\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative Scheduler.pdb
+J:\HomeWork\Summer 2020\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative_Scheduler.Form1.resources
 J:\HomeWork\Summer 2020\Summer 2020\Software Practice\Project attempt1\Administrative Scheduler\obj\Debug\Administrative Scheduler.csprojAssemblyReference.cache

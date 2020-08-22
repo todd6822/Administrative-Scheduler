@@ -26,6 +26,7 @@ namespace Administrative_Scheduler
         DataTable DataTable3 = new DataTable();
         DataTable DataTable4 = new DataTable();
         AdminScheduleCallProceedure workLoadName = new AdminScheduleCallProceedure();
+        string rowNumberForWorkLoad;
 
         string Parameter1Type = "";
         string Parameter2Type = "";
@@ -137,16 +138,19 @@ namespace Administrative_Scheduler
 
         private void workLoadDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
+            string workLoad = "";
             dataGridValues nameOfWorkload = new dataGridValues();
             AdminScheduleCallProceedure returnAllConstraintsForAWorkLoad = new AdminScheduleCallProceedure();
             AdminScheduleCallProceedure returnUnassinedConstratins = new AdminScheduleCallProceedure();
             dataGridValues findEntryNumber = new dataGridValues();
-            string rowNumberForWorkLoad=findEntryNumber.returnElementString(sender, e, workLoadDataGridView, DataTable1, 0);
+            workLoad=findEntryNumber.returnElementString(sender, e, workLoadDataGridView, DataTable1, 0);
             MessageBox.Show(rowNumberForWorkLoad, "The workLoad name");
 
-            DataTable2 = returnAllConstraintsForAWorkLoad.UseProceedure("returnAllConstraintsForAllWorkLoads", "@workLoadName", rowNumberForWorkLoad);
+            DataTable2 = returnAllConstraintsForAWorkLoad.UseProceedure("returnConstraintInfoByWorkloadName", "@workLoadName", workLoad);
+            DataTable3 = returnUnassinedConstratins.UseProceedure("returnUnassignedConstraints", "@workLoadName", workLoad);
 
-            DataTable3 = returnUnassinedConstratins.UseProceedure("returnUnassignedConstraints", "@workLoadName", rowNumberForWorkLoad);
+            
 
             this.workLoadConstraintsList.DataSource = DataTable2;
             this.constraintAssingmentsGrid.DataSource = DataTable3;
@@ -165,10 +169,10 @@ namespace Administrative_Scheduler
 
         private void workLoadConstraintsList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            AdminScheduleCallProceedure returnUnassinedConstratins = new AdminScheduleCallProceedure();
             AdminScheduleCallProceedure workLoadAndConstraint = new AdminScheduleCallProceedure();
             AdminScheduleCallProceedure removeConstraint = new AdminScheduleCallProceedure();
-            DataTable1 = workLoadAndConstraint.UseProceedure("findAllWorkloads");
-            this.workLoadDataGridView.DataSource = DataTable1;
+            
 
             dataGridValues dataGridValueForConstraint = new dataGridValues();
 
@@ -177,6 +181,14 @@ namespace Administrative_Scheduler
             MessageBox.Show(constraintElementNumber);
 
             removeConstraint.UseProceedure("unassignConstraintsByName", "@workLoadName", "@constraintName", workLoadNameTextBox.Text, constraintElementNumber);
+
+            DataTable1 = workLoadAndConstraint.UseProceedure("findAllWorkloads");
+            DataTable3 = returnUnassinedConstratins.UseProceedure("returnUnassignedConstraints", "@workLoadName", workLoadNameTextBox.Text);
+
+            this.constraintAssingmentsGrid.DataSource = DataTable3;
+            this.workLoadDataGridView.DataSource = DataTable1;
+
+           
 
 
 
@@ -192,10 +204,24 @@ namespace Administrative_Scheduler
 
         private void updateWorkAssignmentButton_Click(object sender, EventArgs e)
         {
-
+            AdminScheduleCallProceedure returnAllConstraintsForAWorkLoad = new AdminScheduleCallProceedure();
+            AdminScheduleCallProceedure returnUnassinedConstratins = new AdminScheduleCallProceedure();
             AdminScheduleCallProceedure loadUnasignedConstraints = new AdminScheduleCallProceedure();
-            DataTable1 = loadUnasignedConstraints.UseProceedure("returnUnassignedConstraints","@workLoadName","");
+            AdminScheduleCallProceedure callInsertAllConstraints = new AdminScheduleCallProceedure();
+            //callInsertAllConstraints.UseProceedure("AdminScheduleCallProceedure",)
+            DataTable1 = loadUnasignedConstraints.UseProceedure("findAllWorkloads");
+
+
+            DateTime defaultDate= DateTime.Now.AddDays(-14);
+
             this.workLoadDataGridView.DataSource = DataTable1;
+
+            DataTable2 = returnAllConstraintsForAWorkLoad.UseProceedure("returnConstraintsByWorkloadName", "@workLoadName", rowNumberForWorkLoad);
+
+            DataTable3 = returnUnassinedConstratins.UseProceedure("returnUnassignedConstraints", "@workLoadName", rowNumberForWorkLoad);
+
+            this.workLoadConstraintsList.DataSource = DataTable2;
+            this.constraintAssingmentsGrid.DataSource = DataTable3;
         }
 
         private void returnToScheduleScreenButton_Click(object sender, EventArgs e)

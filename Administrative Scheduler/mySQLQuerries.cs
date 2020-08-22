@@ -218,6 +218,26 @@ namespace Administrative_Scheduler
             return DataTable1;
 
         }
+
+        public DataTable UseProceedure(string ProceedureName, string Parameter1Name, string Parameter2Name, int Parameter1Value, string Parameter2Value)
+
+        {
+            //   DataTable DataTable1 = new DataTable();
+            connection1.Open();
+
+
+            SQLCmd = new SqlCommand(ProceedureName, connection1);
+            SQLCmd.CommandType = CommandType.StoredProcedure;
+            SQLCmd.Parameters.AddWithValue(Parameter1Name, Parameter1Value);
+            SQLCmd.Parameters.AddWithValue(Parameter2Name, Parameter2Value);
+
+            SQLCmd.ExecuteNonQuery();
+            Adapter1 = new SqlDataAdapter(SQLCmd);
+            Adapter1.Fill(DataTable1);
+            connection1.Close();
+            return DataTable1;
+
+        }
         public DataTable UseProceedure(string ProceedureName, string Parameter1Name, string Parameter2Name,string Parameter3Name, int Parameter1Value, int Parameter2Value, int Parameter3Value)
 
         {
@@ -230,6 +250,94 @@ namespace Administrative_Scheduler
             SQLCmd.Parameters.AddWithValue(Parameter1Name, Parameter1Value);
             SQLCmd.Parameters.AddWithValue(Parameter2Name, Parameter2Value);
             SQLCmd.Parameters.AddWithValue(Parameter3Name, Parameter3Value);
+            SQLCmd.ExecuteNonQuery();
+            Adapter1 = new SqlDataAdapter(SQLCmd);
+            Adapter1.Fill(DataTable1);
+            connection1.Close();
+
+            return DataTable1;
+
+        }
+
+        public DataTable UseProceedure(string ProceedureName, string Parameter1Name, string Parameter2Name, string Parameter3Name, int Parameter1Value, int Parameter2Value, string Parameter3Value)
+
+        {
+            //   DataTable DataTable1 = new DataTable();
+            connection1.Open();
+
+
+            SQLCmd = new SqlCommand(ProceedureName, connection1);
+            SQLCmd.CommandType = CommandType.StoredProcedure;
+            SQLCmd.Parameters.AddWithValue(Parameter1Name, Parameter1Value);
+            SQLCmd.Parameters.AddWithValue(Parameter2Name, Parameter2Value);
+            SQLCmd.Parameters.AddWithValue(Parameter3Name, Parameter3Value);
+            SQLCmd.ExecuteNonQuery();
+            Adapter1 = new SqlDataAdapter(SQLCmd);
+            Adapter1.Fill(DataTable1);
+            connection1.Close();
+
+            return DataTable1;
+
+        }
+
+        public DataTable UseProceedure(string ProceedureName, string Parameter1Name, string Parameter2Name, string Parameter3Name,string Parameter4Name, int Parameter1Value, int Parameter2Value, int Parameter3Value, int Parameter4Value)
+
+        {
+            //   DataTable DataTable1 = new DataTable();
+            connection1.Open();
+
+
+            SQLCmd = new SqlCommand(ProceedureName, connection1);
+            SQLCmd.CommandType = CommandType.StoredProcedure;
+            SQLCmd.Parameters.AddWithValue(Parameter1Name, Parameter1Value);
+            SQLCmd.Parameters.AddWithValue(Parameter2Name, Parameter2Value);
+            SQLCmd.Parameters.AddWithValue(Parameter3Name, Parameter3Value);
+            SQLCmd.Parameters.AddWithValue(Parameter4Name, Parameter4Value);
+            SQLCmd.ExecuteNonQuery();
+            Adapter1 = new SqlDataAdapter(SQLCmd);
+            Adapter1.Fill(DataTable1);
+            connection1.Close();
+
+            return DataTable1;
+
+        }
+
+        public DataTable UseProceedure(string ProceedureName, string Parameter1Name, string Parameter2Name, string Parameter3Name, string Parameter4Name, string Parameter5Name , int Parameter1Value, int Parameter2Value, int Parameter3Value, int Parameter4Value, DateTime Parameter5Value)
+
+        {
+            //   DataTable DataTable1 = new DataTable();
+            connection1.Open();
+
+
+            SQLCmd = new SqlCommand(ProceedureName, connection1);
+            SQLCmd.CommandType = CommandType.StoredProcedure;
+            SQLCmd.Parameters.AddWithValue(Parameter1Name, Parameter1Value);
+            SQLCmd.Parameters.AddWithValue(Parameter2Name, Parameter2Value);
+            SQLCmd.Parameters.AddWithValue(Parameter3Name, Parameter3Value);
+            SQLCmd.Parameters.AddWithValue(Parameter4Name, Parameter4Value);
+            SQLCmd.Parameters.AddWithValue(Parameter5Name, Parameter5Value);
+            SQLCmd.ExecuteNonQuery();
+            Adapter1 = new SqlDataAdapter(SQLCmd);
+            Adapter1.Fill(DataTable1);
+            connection1.Close();
+
+            return DataTable1;
+
+        }
+        public DataTable UseProceedure(string ProceedureName, string Parameter1Name, string Parameter2Name, string Parameter3Name, string Parameter4Name, string Parameter5Name, string Parameter1Value, int Parameter2Value, int Parameter3Value, int Parameter4Value, DateTime Parameter5Value)
+
+        {
+            //   DataTable DataTable1 = new DataTable();
+            connection1.Open();
+
+
+            SQLCmd = new SqlCommand(ProceedureName, connection1);
+            SQLCmd.CommandType = CommandType.StoredProcedure;
+            SQLCmd.Parameters.AddWithValue(Parameter1Name, Parameter1Value);
+            SQLCmd.Parameters.AddWithValue(Parameter2Name, Parameter2Value);
+            SQLCmd.Parameters.AddWithValue(Parameter3Name, Parameter3Value);
+            SQLCmd.Parameters.AddWithValue(Parameter4Name, Parameter4Value);
+            SQLCmd.Parameters.AddWithValue(Parameter5Name, Parameter5Value);
             SQLCmd.ExecuteNonQuery();
             Adapter1 = new SqlDataAdapter(SQLCmd);
             Adapter1.Fill(DataTable1);
@@ -258,6 +366,8 @@ namespace Administrative_Scheduler
             return DataTable1;
 
         }
+
+
 
 
         public DataTable UseProceedure(string ProceedureName, string Parameter1Name, string Parameter2Name, string Parameter3Name,
@@ -347,18 +457,26 @@ namespace Administrative_Scheduler
         }
         public int UseProceedureReturnInt(string ProceedureName, string Parameter1Name, string Parameter1Value)
         {
+            object identity = 0;
             connection1.Open();
-
+            int returnValue = 0;
 
             SQLCmd = new SqlCommand(ProceedureName, connection1);
             SQLCmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter SQP = new SqlParameter("returnVal", SqlDbType.Int);
+            SQLCmd.Parameters.Add(SQP);
+            SQLCmd.ExecuteScalar();
+            identity = Convert.ToInt32(SQP.Value);
             SQLCmd.Parameters.AddWithValue(Parameter1Name, Parameter1Value);
             SQLCmd.ExecuteNonQuery();
-            Adapter1 = new SqlDataAdapter(SQLCmd);
-            Adapter1.Fill(DataTable1);
+            returnValue = Convert.ToInt32(identity);
             connection1.Close();
 
-            return (int)SQLCmd.ExecuteScalar();
+
+
+            return returnValue;
+           
+           
 
         }
 
@@ -375,42 +493,80 @@ namespace Administrative_Scheduler
             Adapter1 = new SqlDataAdapter(SQLCmd);
             Adapter1.Fill(DataTable1);
             connection1.Close();
-
             return (int)SQLCmd.ExecuteScalar();
 
         }
 
 
-        public int UseProceedureReturnInt(string ProceedureName, string Parameter1Name, int Parameter1Value)
+        public int UseProceedureReturnInt3(string ProceedureName, string Parameter1Name, string Parameter1Value)
         {
+            object identity = 0;
             connection1.Open();
+            int returnValue = 0;
+
             SQLCmd = new SqlCommand(ProceedureName, connection1);
             SQLCmd.CommandType = CommandType.StoredProcedure;
+            SqlParameter SQP = new SqlParameter("@returnVal", SqlDbType.Int);
             SQLCmd.Parameters.AddWithValue(Parameter1Name, Parameter1Value);
+            SQLCmd.Parameters.Add(SQP);
+            SQLCmd.ExecuteScalar();
+            identity = Convert.ToInt32(SQP.Value);
             SQLCmd.ExecuteNonQuery();
-            Adapter1 = new SqlDataAdapter(SQLCmd);
-            Adapter1.Fill(DataTable1);
+            returnValue = Convert.ToInt32(identity);
             connection1.Close();
 
-            return (int)SQLCmd.ExecuteScalar();
+
+
+            return returnValue;
 
         }
-        public int UseProceedureReturnInt(string ProceedureName, string Parameter1Name, string Parameter2Name, int Parameter1Value, int Parameter2Value)
+        public int UseProceedureReturnInt2(string ProceedureName, string Parameter1Name,  string Parameter1Value)
         {
+            int returnInt;
             connection1.Open();
             SQLCmd = new SqlCommand(ProceedureName, connection1);
             SQLCmd.CommandType = CommandType.StoredProcedure;
             SQLCmd.Parameters.AddWithValue(Parameter1Name, Parameter1Value);
-            SQLCmd.Parameters.AddWithValue(Parameter2Name, Parameter2Value);
+
+            SQLCmd.Parameters.Add("@numberOfConstraint", SqlDbType.Int);
+            SQLCmd.Parameters["@numberOfConstraint"].Direction = ParameterDirection.Output;
+            //SqlParameter SQP = new SqlParameter("@numberOfConstraint", SqlDbType.Int);
+           // SQP.Direction = ParameterDirection.Output;
             SQLCmd.ExecuteNonQuery();
+            
             Adapter1 = new SqlDataAdapter(SQLCmd);
             Adapter1.Fill(DataTable1);
+            returnInt = (int)SQLCmd.Parameters["@numberOfConstraint"].Value;
             connection1.Close();
 
-            return (int)SQLCmd.ExecuteScalar();
+            return returnInt;
+
+        }
+        public int UseProceedureReturnInt2(string ProceedureName, string Parameter1Name,string Parameter2Name ,string Parameter1Value)
+        {
+            int returnInt;
+            connection1.Open();
+            SQLCmd = new SqlCommand(ProceedureName, connection1);
+            SQLCmd.CommandType = CommandType.StoredProcedure;
+            SQLCmd.Parameters.AddWithValue(Parameter1Name, Parameter1Value);
+            SQLCmd.Parameters.AddWithValue(Parameter2Name, 0);
+
+            SQLCmd.Parameters.Add("@numberOfConstraint", SqlDbType.Int);
+            SQLCmd.Parameters["@numberOfConstraint"].Direction = ParameterDirection.Output;
+            //SqlParameter SQP = new SqlParameter("@numberOfConstraint", SqlDbType.Int);
+            // SQP.Direction = ParameterDirection.Output;
+            SQLCmd.ExecuteNonQuery();
+
+            Adapter1 = new SqlDataAdapter(SQLCmd);
+            Adapter1.Fill(DataTable1);
+            returnInt = (int)SQLCmd.Parameters["@numberOfConstraint"].Value;
+            connection1.Close();
+
+            return returnInt;
 
         }
     }
 }
-    
 
+
+//cmd.Parameters.Add("@retValue", System.Data.SqlDbType.Int).Direction = System.Data.ParameterDirection.ReturnValue;

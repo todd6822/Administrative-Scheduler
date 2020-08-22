@@ -312,7 +312,7 @@ namespace Administrative_Scheduler
         {
 
                   AdminScheduleCallProceedure findLeaveIDNumber = new AdminScheduleCallProceedure();
-                        DataTable4=  findLeaveIDNumber.UseProceedure("returnLeavePeriods", "@memberPsuedoNym", pseudonymTextBox.Text);
+                     DataTable4=  findLeaveIDNumber.UseProceedure("returnLeavePeriods", "@memberPsuedoNym", pseudonymTextBox.Text);
             this.leaveDataGridView.DataSource = DataTable4;
         } 
         private void leaveDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -398,13 +398,19 @@ namespace Administrative_Scheduler
 
 
             AdminScheduleCallProceedure assignWorkLoad = new AdminScheduleCallProceedure();
+            AdminScheduleCallProceedure assignConstraints = new AdminScheduleCallProceedure();
+
+
             int memberNumber = Convert.ToInt32(memberNumberFromDataGrid);
             int workLoadNumber = Convert.ToInt32(valueFromDataGrid2);
             int timerValue = 0;
-
+            int timer2Value = 0;
+            DateTime newDateTime = DateTime.Now.AddDays(-14);
             
 
-            assignWorkLoad.UseProceedure("insertIntoWorkloadJunctionTable2","@workLoadID","@memberID","@timerValue",workLoadNumber, memberNumber,timerValue);
+            assignWorkLoad.UseProceedure("insertIntoWorkloadJunctionTable","@workLoadID","@memberID",workLoadNumber, memberNumber);
+
+            assignConstraints.UseProceedure("createTimersForAllConstraintDurringWorkLoadAssignment", "@workLoadID", "@memberNumber", "@timerValue", "@timer2Value","@DateTime" ,workLoadNumber, memberNumber, timerValue, timer2Value,newDateTime);
 
 
 

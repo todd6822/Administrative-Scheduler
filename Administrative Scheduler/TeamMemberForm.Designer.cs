@@ -106,6 +106,7 @@
             // 
             // endDatePicker
             // 
+            this.endDatePicker.CustomFormat = "dd-mm-yy hh:mm";
             this.endDatePicker.Location = new System.Drawing.Point(280, 774);
             this.endDatePicker.Name = "endDatePicker";
             this.endDatePicker.Size = new System.Drawing.Size(204, 20);
@@ -238,7 +239,7 @@
             // missingWorkLoadView
             // 
             this.missingWorkLoadView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.missingWorkLoadView.Location = new System.Drawing.Point(464, 410);
+            this.missingWorkLoadView.Location = new System.Drawing.Point(471, 425);
             this.missingWorkLoadView.Name = "missingWorkLoadView";
             this.missingWorkLoadView.Size = new System.Drawing.Size(251, 187);
             this.missingWorkLoadView.TabIndex = 20;
